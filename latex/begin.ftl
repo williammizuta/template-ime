@@ -1,104 +1,102 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%%                  Caelum Tubaina
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \documentclass[a4paper, 11pt, twoside]{book}
 
-%% Escrevendo em portugues:
-\usepackage[brazil]{babel}	
-\usepackage[utf8]{inputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[T1]{fontenc}
-\usepackage{float}
-\usepackage[scaled]{helvet}
-\renewcommand*\familydefault{\sfdefault}
-%\usepackage[bitstream-charter]{mathdesign}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{setspace}
 \usepackage{indentfirst}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Packages
-
-\usepackage[dvips]{graphicx,psfrag}
-\usepackage{ifthen}
 \usepackage{makeidx}
-\usepackage{enumerate}
+\usepackage[nottoc]{tocbibind}
+\usepackage{courier}
+\usepackage{type1cm}
+\usepackage{listings}
+\usepackage{titletoc}
+\usepackage[fixlanguage]{babelbib}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage[a4paper,top=2.54cm,bottom=2.0cm,left=2.0cm,right=2.54cm]{geometry}
+\usepackage[pdftex,plainpages=false,pdfpagelabels,pagebackref,colorlinks=true,citecolor=DarkGreen,linkcolor=NavyBlue,urlcolor=DarkRed,filecolor=green,bookmarksopen=true]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage[square,sort,nonamebreak,comma]{natbib}
+\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
-\usepackage{pstcol}
-\usepackage{colortbl}
-\usepackage{mintedx}
-\usepackage{url}
-\usepackage{tubaina}
-\usepackage{rotating}
-\usepackage{multirow}
-\usepackage[table]{xcolor}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\MakeUppercase{#1}}{}}
+\renewcommand{\headrulewidth}{0pt}
 
-%This has to be the last package declared, for some reason
-\usepackage[pdftex]{hyperref}
-
-%% Unused packages
-
-%\usepackage{multicol}
-%\usepackage{floatflt}
-%\usepackage{lscape}
-%\usepackage{latexsym}
-%\usepackage{amscd}
-%\usepackage{amsfonts}
-%\usepackage{amsmath}
-%\usepackage{amssymb}
-%\usepackage{amsthm}
-%\usepackage{pslatex}
-
-%%%%%%%PAGE SETUP%%%%%%%%%%%%%
-\oddsidemargin     -6mm
-\evensidemargin   -19mm
-\textwidth        180mm
-\topmargin        -10mm
-\textheight       250mm
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\makeatletter
-\makeatother
-\setcounter{tocdepth}{2}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{./figuras/}}
+\frenchspacing
+\urlstyle{same}
 \makeindex
+\raggedbottom
+\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
+\cleardoublepage
+\normalsize
+
+\lstset{
+	language=Java,
+	basicstyle=\footnotesize,
+	numbers=left,
+	numberstyle=\footnotesize,
+	stepnumber=1,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	framerule=0.6pt,
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	breakatwhitespace=false,
+	escapeinside={\%*}{*)},
+	backgroundcolor=\color[rgb]{1.0,1.0,1.0},
+	rulecolor=\color[rgb]{0.8,0.8,0.8},
+	extendedchars=true,
+	xleftmargin=10pt,
+	xrightmargin=10pt,
+	framexleftmargin=10pt,
+	framexrightmargin=10pt
+}
 
 \begin{document}
-\usemintedstyle{eclipse}
 
-\normalfont
+% para quebrar pagina e nao espalhar o texto com imagens
+\raggedbottom
 
-<#include "cover.ftl">
-\newpage
+\frontmatter
+\fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
+\setcounter{tocdepth}{2}
+\fancyhead[LE]{\thepage\hspace{2em}\footnotesize{\leftmark}}
+\fancyhead[RE,LO]{}
+\fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
 
-\pagestyle{plain}
+\onehalfspacing
+
+<#include "capa.ftl">
+<#include "rosto_depositada.ftl">
+<#include "rosto_corrigida.ftl">
+
 \pagenumbering{roman}
-\setcounter{page}{1} 
+
+<#include "agradecimentos.ftl">
+<#include "resumo.ftl">
+<#include "abstract.ftl">
 
 \tableofcontents
 
-\centerline{\bf Versão: ${textbookVersion}}
-\newpage
+\listoffigures
+\listoftables
 
-\newsavebox{\logocaelum}
-\sbox{\logocaelum}{\includegraphics[totalheight=1em]{tubaina.png}}
-\pagestyle{fancy}
-\fancyhf{}
+\mainmatter
 
-\lhead{\footnotesize{\usebox{\logocaelum}\hspace{2mm}Caelum -- http://www.caelum.com.br }}
-\rhead{\footnotesize{${book.name}}}
+\fancyhead[RE,LO]{\thesection}
 
-%\rhead{\nouppercase{\bfseries\rightmark}}
-%\lhead{\nouppercase{\bfseries\leftmark}}
-\makeatletter
-\renewcommand{\chaptermark}[1]{\markboth{\@chapapp\ \thechapter\ -\ #1}{}}
-\makeatother
-\renewcommand{\sectionmark}[1]{\markright{\ #1}{}}
-\rfoot{\footnotesize\nouppercase{\leftmark\ - \rightmark\ - Página \thepage}}
-
-
-
-\pagenumbering{arabic}
-\setcounter{page}{1}
-%code listings counter
-\newcounter{codecounter}
+\onehalfspacing
