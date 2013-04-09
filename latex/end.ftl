@@ -3,12 +3,12 @@
 %%    BIBLIOGRAFIA
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage
-%\clearemptydoublepage
-%\bibliographystyle{joseplain}
-%\addcontentsline{toc}{chapter}{Refer\^{e}ncias Bibliográficas}
-%\bibliography{dissertacao}
-
+\newpage
+\clearemptydoublepage
+\singlespacing
+\bibliographystyle{alpha-ime}
+\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+\bibliography{bibliografia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
