@@ -4,6 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
 \usepackage[latin1]{inputenc}
+
+\usepackage{tubaina}
 \usepackage[pdftex]{graphicx}
 \usepackage{setspace}
 \usepackage{indentfirst}
@@ -65,6 +67,8 @@
 	framexleftmargin=10pt,
 	framexrightmargin=10pt
 }
+
+\makeindex
 
 \begin{document}
 
