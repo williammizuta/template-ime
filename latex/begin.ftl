@@ -33,7 +33,6 @@
 \renewcommand{\headrulewidth}{0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./figuras/}}
 \frenchspacing
 \urlstyle{same}
 \makeindex
@@ -68,12 +67,7 @@
 	framexrightmargin=10pt
 }
 
-\makeindex
-
 \begin{document}
-
-% para quebrar pagina e nao espalhar o texto com imagens
-\raggedbottom
 
 \frontmatter
 \fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
