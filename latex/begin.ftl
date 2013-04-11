@@ -31,19 +31,16 @@
 \usepackage[pdftex,plainpages=false,pdfpagelabels,pagebackref,colorlinks=true,citecolor=DarkGreen,linkcolor=NavyBlue,urlcolor=DarkRed,filecolor=green,bookmarksopen=true]{hyperref}
 \usepackage[all]{hypcap}
 
-\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%%    BIBLIOGRAFIA
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
 \renewcommand{\sectionmark}[1]{\markright{\MakeUppercase{#1}}{}}
 \renewcommand{\headrulewidth}{0pt}
+
+\fontsize{60}{62}
+\usefont{OT1}{cmr}{m}{n}{\selectfont}
+\raggedbottom
 
 <#include "pygments.ftl">
 
@@ -57,11 +54,8 @@
 \makeatother
 \setcounter{tocdepth}{2}
 
-\raggedbottom
-
 \frontmatter
 \fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
-\setcounter{tocdepth}{2}
 \fancyhead[LE]{\thepage\hspace{2em}\footnotesize{\leftmark}}
 \fancyhead[RE,LO]{}
 \fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
