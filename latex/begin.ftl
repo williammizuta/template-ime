@@ -62,6 +62,7 @@
 
 \onehalfspacing
 
+<#include "definitions.ftl">
 <#include "capa.ftl">
 <#include "rosto_depositada.ftl">
 <#include "rosto_corrigida.ftl">
